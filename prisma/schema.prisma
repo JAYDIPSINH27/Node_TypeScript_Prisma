@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model tblRegistration{
+  id Int @default(autoincrement()) @id
+  fname String @db.VarChar(50)
+  lname String @db.VarChar(50)
+  email String @unique
+  phoneNo String @db.VarChar(10)
+
+}
